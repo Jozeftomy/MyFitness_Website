@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Workouts() {
+const Workouts = () => {
   return (
     <div>Workouts</div>
   )

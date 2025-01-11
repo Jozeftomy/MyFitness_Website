@@ -1,6 +1,6 @@
-import React from 'react'
 import styled from 'styled-components';
-import { BarChart } from "@mui/x-charts/BarChart";
+import TextInput from '../TextInput';
+import  Button  from '../Button';
 
 const Card = styled.div`
 border: 1px solid ${({ theme }) => theme.text_primary + 20};
@@ -21,20 +21,27 @@ const Title = styled.div`
   }`;
 
 
-const WeeklyStatCard = ({data}) => {
+const AddWorkouts = ({workout,setWorkout}) => {
+   
   return (
     <Card>
-      <Title>Weekly Calories Burned</Title>
-      {data?.totalWeeksCaloriesBurnt && <BarChart
-       xAxis={[
-        { scaleType: "band", data: data?.totalWeeksCaloriesBurnt?.weeks },
-      ]}
-      series={[{ data: data?.totalWeeksCaloriesBurnt?.caloriesBurned }]}
-      height={300}
-      />}
+      <Title>Add Your Workout</Title>
+     <TextInput 
+      textArea
+      rows={10}
+      placeholder={`Enter details in the following format:
 
+      # Category
+      - Workout Name
+      - Sets
+      - Reps
+      - Weight
+      - Duration`}
+     value={workout}
+     handelChange={(e)=>setWorkout(e.target)} />
+     <Button text="Add Workout" small/>
     </Card>
   )
 }
 
-export default WeeklyStatCard
+export default AddWorkouts
