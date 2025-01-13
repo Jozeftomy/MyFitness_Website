@@ -80,7 +80,7 @@ const Desc = styled.div`
   }
 `;
 
-const CountsCard = ({item,data}) => {
+const CountsCard = ({ item, data }) => {
   return (
     <Card>
       <Left>

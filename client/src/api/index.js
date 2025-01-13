@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 const API = axios.create({
   baseURL: "https://fitnesstrack-vtv1.onrender.com/api/",
 });

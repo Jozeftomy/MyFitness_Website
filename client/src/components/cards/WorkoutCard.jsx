@@ -1,5 +1,6 @@
-import { FitnessCenterRounded, TimelapseRounded } from "@mui/icons-material"
-import styled from "styled-components"
+import { FitnessCenterRounded, TimelapseRounded } from "@mui/icons-material";
+import React from "react";
+import styled from "styled-components";
 
 const Card = styled.div`
   flex: 1;
@@ -50,25 +51,26 @@ const Details = styled.div`
   gap: 6px;
 `;
 
-
-function WorkoutCard() {
+const WorkoutCard = ({ workout }) => {
   return (
     <Card>
-        <Category>Chest</Category>
-        <Name>Incline Chest Press</Name>
-        <Sets>Count: 4sets * 10reps</Sets>
-        <Flex>
-            <Details>
-                <FitnessCenterRounded sx={{fontSize: "20px"}}/>
-                 20kg
-            </Details>
-            <Details>
-                <TimelapseRounded sx={{fontSize: "20px"}}/>
-                 30kg
-            </Details>
-        </Flex>
+      <Category>#{workout?.category}</Category>
+      <Name>{workout?.workoutName}</Name>
+      <Sets>
+        Count: {workout?.sets} sets X {workout?.reps} reps
+      </Sets>
+      <Flex>
+        <Details>
+          <FitnessCenterRounded sx={{ fontSize: "20px" }} />
+          {workout?.weight} kg
+        </Details>
+        <Details>
+          <TimelapseRounded sx={{ fontSize: "20px" }} />
+          {workout?.duration} min
+        </Details>
+      </Flex>
     </Card>
-  )
-}
+  );
+};
 
-export default WorkoutCard
+export default WorkoutCard;
